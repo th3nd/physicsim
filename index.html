@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>physics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="controls">
+    <p>timescale:  <span class="tip">(default = 0.2 t)</span></p>
+    <input type="range" value="20" min="0" max="40" id="t">
+    <p>gravity:  <span class="tip">(default = 9.82 m/s)</span></p>
+    <input type="range" value="982" min="0" max="2000" id="g">
+    <p>drag coefficient:  <span class="tip">(default = 0.47)</span></p>
+    <input type="range" value="47" min="0" max="100" id="d">
+    <p>mass:  <span class="tip">(default = 0.4kg)</span></p>
+    <input type="range" value="40" min="0" max="100" id="m">
+    <p>air density:  <span class="tip">(default = 1.2 kg/m^3)</span></p>
+    <input type="range" value="120" min="0" max="200" id="a">
+  </div>
+  <canvas id="canvas"></canvas>
+  <div class="speedo">
+    <p id="speed"></p>
+  </div>
+<script src="app.js"></script>
+</body>
+</html>

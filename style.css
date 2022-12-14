@@ -1,0 +1,36 @@
+body {
+    background: #000;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+canvas {
+    background: white;
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.controls {
+    position: absolute;
+    color: black;
+    top: 2rem;
+    left: 2rem;
+}
+
+.tip {
+    color: rgb(197, 197, 197);
+    font-style: italic;
+}
+
+.speedo {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: black;
+}
+
+#speed::after {
+    content: ' m/s';
+}
