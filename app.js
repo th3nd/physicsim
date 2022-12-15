@@ -99,32 +99,32 @@ canvas.addEventListener("mouseup", m_up)
 canvas.addEventListener("mousemove", m_move)
 
 // globala mus-variabler för att ha koll på musens state.
-let isMouseDown = false
-let mouseX = 0
-let mouseY = 0
+let is_m_down = false
+let m_x = 0
+let m_y = 0
 
 // när musknapp åker ner körs den här koden
 function m_down(event) {
-  isMouseDown = true
-  mouseX = event.clientX
-  mouseY = event.clientY
+  is_m_down = true
+  m_x = event.clientX
+  m_y = event.clientY
 }
 
 // när musknapp åker upp körs den här koden
 function m_up(event) {
-  isMouseDown = false
+  is_m_down = false
 }
 
 // körs när musen rörs
 function m_move(event) {
-  if (isMouseDown) {
+  if (is_m_down) {
     // Om musen är nere, uppdatera bollens position och hastighet
     x = event.clientX
     y = event.clientY
-    velocity[1] = (x - mouseX)
-    velocity[0] = (y - mouseY)
-    mouseX = x
-    mouseY = y
+    velocity[1] = (x - m_x)
+    velocity[0] = (y - m_y)
+    m_x = x
+    m_y = y
   }
 }
 
