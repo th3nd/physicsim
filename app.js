@@ -44,12 +44,20 @@ function animate() {
   // bollen har som standard en radie på 0,2 meter, en luftmotståndskoefficient på 0,47, en massa på 0,4 kilogram och rör sig genom luft med en densitet på 1,2 kilogram per kubikmeter
   let b = 0.5 * drag * pi * (r/10^2) * air / mass
 
+  
   // Uppdatera bollens position och hastighet
   x += velocity[1] * dt
   y += velocity[0] * dt
   velocity[0] += g * dt
   velocity[1] -= b * velocity[1] * dt
-
+  
+  if (is_m_down) {
+    // Om musen är nere, uppdatera bollens position och hastighet
+    velocity[1] = (m_x - x)
+    velocity[0] = (m_y - y)
+    x = m_x
+    y = m_y
+  } 
   
   // Kontrollera om bollen har nuddat marken
   if (y + r > canvas.height) {
@@ -78,7 +86,7 @@ function animate() {
     x = r
   }
 
-  // ta bort förra bollen
+  // ta bort förra framen
   context.clearRect(0, 0, canvas.width, canvas.height)
 
   // rita bollen
@@ -106,8 +114,6 @@ let m_y = 0
 // när musknapp åker ner körs den här koden
 function m_down(event) {
   is_m_down = true
-  m_x = event.clientX
-  m_y = event.clientY
 }
 
 // när musknapp åker upp körs den här koden
@@ -117,15 +123,8 @@ function m_up(event) {
 
 // körs när musen rörs
 function m_move(event) {
-  if (is_m_down) {
-    // Om musen är nere, uppdatera bollens position och hastighet
-    x = event.clientX
-    y = event.clientY
-    velocity[1] = (x - m_x)
-    velocity[0] = (y - m_y)
-    m_x = x
-    m_y = y
-  }
+  m_x = event.clientX
+  m_y = event.clientY
 }
 
 // det här körs en gång för att starta loopen.
